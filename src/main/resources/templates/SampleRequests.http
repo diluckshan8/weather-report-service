@@ -1,0 +1,72 @@
+#Weather Report Service API Documentation
+#
+### Core Endpoints
+#
+#### 1. Get Current Weather
+#Fetch current weather data for Melbourne from the weather service.
+
+GET http://localhost:8080/v1/weather?city=melbourne
+Accept: */*
+Content-Type: application/json
+
+
+### 2. Invalid City Name to call secondary api
+#Request weather for a invalid city
+
+GET http://localhost:8080/v1/weather?city=unKnowncity
+Accept: */*
+Content-Type: application/json
+
+
+### 3. Missing City Parameter
+#Request without specifying a city parameter.
+
+GET http://localhost:8080/v1/weather
+Accept: */*
+Content-Type: application/json
+
+
+### 4. Empty city Value
+#Request with empty city parameter.
+
+GET http://localhost:8080/v1/weather?city=
+Accept: */*
+Content-Type: application/json
+
+
+### 5. Invalid API access Key
+#Request with an invalid API access key.
+
+GET http://localhost:8080/v1/weather?city=melbourne
+Accept: */*
+Content-Type: application/json
+
+
+### 6. Invalid API Version
+#Request with an invalid API version.
+
+GET http://localhost:8080/v2/weather?city=melbourne
+Accept: */*
+Content-Type: application/json
+
+
+### Health Check Endpoint
+#Check service health status including provider availability.
+
+GET http://localhost:8080/actuator/health
+Accept: application/json
+
+
+
+###Original external api
+
+GET http://api.openweathermap.org/data/2.5/weather?q=melbourne,AU&appid=9accb38b2a3edf65ca2255ff5696544d&units=metric
+Accept: */*
+Content-Type: application/json
+
+
+###
+
+GET http://api.weatherstack.com/current?access_key=1ec7d23783baff1171adf8e4580fc342&query=melbourne&units=m
+Accept: */*
+Content-Type: application/json
